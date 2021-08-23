@@ -7,20 +7,19 @@ import java.util.Objects;
 public class Produto {
 
 	private String nome;
-	private Double preço;
+	private Double preco;
 	private String unidade;
 	private Integer quantidade;
 	private List<Produto> produtos = new ArrayList<>();
 
-	public Produto(String nome, Double preço, String unidade, Integer quantidade) { 
+	public Produto(String nome, Double preco, String unidade, Integer quantidade) { 
 		this.nome = nome;
-		if (preço <= 0) {
-			System.out.println("ERRO!!! O preço deve ser maior que zero.");
-		} else {
-			this.preço = preço;
-		}
+		this.preco = preco;
 		this.unidade = unidade;
 		this.quantidade = quantidade;
+	}
+
+	public Produto() {
 	}
 
 	public List<Produto> getProdutos() {
@@ -35,12 +34,12 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public Double getPreço() {
-		return preço;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
 	public String getUnidade() {
@@ -55,6 +54,13 @@ public class Produto {
 		return quantidade;
 	}
 
+	public void addQuantidade(Integer valor) {
+		this.quantidade += valor;
+	}
+
+	public void removeQuantidade(Integer valor) {
+		this.quantidade -= valor;
+	}
 
 	@Override
 	public int hashCode() {
@@ -75,10 +81,17 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [name=" + nome + ", preço=" + preço + ", unidade=" + unidade + ", quantidade=" + quantidade
-				+ "]";
+		return "PRODUTO [NOME: " 
+						+ nome 
+						+ ", PREÇO: " 
+						+ preco 
+						+ ", UNIDADE: " 
+						+ unidade 
+						+ ", QUANTIDADE: " 
+						+ quantidade
+						+ "]";
 	}
-
+	
 }
 
 
